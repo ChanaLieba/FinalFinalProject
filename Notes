@@ -1,0 +1,40 @@
+HOW IT WORKS:
+
+Client Screen Opens 
+-Prompts user to input name.
+-When click "submit name," client...
+1. connects to server
+
+
+Server...
+-Waits for clients to connect.
+-When client connects, stores the name & ip.
+-Sends client a message, letting him know what number he is.
+-When three clients are connected, send them a message that game is starting.
+-Structure of server is as follows
+
+-SERVER creates DECK
+-Used DECK to create PLAYERS and POOL
+-Passes PLAYERS and POOL to clients, for them to create their GUI...
+-CLIENTS set the Players and the Pool
+
+-THEN, SERVER sets PERMISSIONS
+-Player[0] gets TRUE
+-Everyone else gets FALSE
+
+-BEGIN TURN and CONTINUE buttons send a message...
+<CONTINUE> <CURRENTPLAYER>
+When server receives this, it sends out PERMISSIONS -
+CURRENT receives TRUE
+E/O else receives FALSE
+When clients receive their PERMISSION, TRUE sets DropdownMenu to visible,
+FALSE sets DropdownMenu to invisible.
+
+<BEGINTURN> <PLAYERTOASK> <NUMPLAYER>
+Server gets this and sends it out to everyone.
+When client receives this, starts a new PlayerTurnThread and passes it this info.
+
+-REPAINT method of the client must
+-DISABLE all the CardButtons of other players
+-Each GameFrame must keep track of an int -- "ME"
+ 
